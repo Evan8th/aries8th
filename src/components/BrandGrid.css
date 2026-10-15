@@ -1,0 +1,228 @@
+/* ------------------------------------------------------------
+   档案式浏览板块:左边一列可以往下滑的档案列表(缩略图 + 标题),
+   右边直接显示当前选中这份企划的内容,不用再点开弹窗看。
+   ------------------------------------------------------------ */
+.brand-archive {
+  margin-top: 48px;
+  display: flex;
+  align-items: stretch;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius-m);
+  overflow: hidden;
+}
+
+/* -------------------- 左边:档案列表 -------------------- */
+.brand-archive-list {
+  flex: 0 0 320px;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  border-right: 1px solid var(--glass-border);
+}
+
+.brand-archive-list-head {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 18px;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.brand-archive-rows {
+  flex: 1 1 auto;
+  overflow-y: auto;
+}
+
+.brand-archive-row {
+  all: unset;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 12px 18px;
+  cursor: pointer;
+  border-bottom: 1px solid var(--glass-border);
+  border-left: 3px solid transparent;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.brand-archive-row:hover {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.brand-archive-row.is-active {
+  background: rgba(32, 211, 197, 0.1);
+  border-left-color: var(--accent);
+}
+
+.brand-archive-row-index {
+  flex: 0 0 auto;
+  width: 20px;
+  color: var(--text-dim);
+}
+
+.brand-archive-row.is-active .brand-archive-row-index {
+  color: var(--accent);
+}
+
+.brand-archive-row-thumb {
+  flex: 0 0 auto;
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-s);
+  overflow: hidden;
+  background: var(--bg-elevated);
+}
+
+.brand-archive-row-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.brand-archive-row-info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+
+.brand-archive-row-title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 13px;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.brand-archive-row.is-active .brand-archive-row-title {
+  color: var(--accent);
+}
+
+/* -------------------- 右边:当前企划内容 -------------------- */
+.brand-archive-main {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+}
+
+.brand-archive-main-head {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.brand-archive-live {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--accent);
+}
+
+.brand-archive-live .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 10px 2px rgba(32, 211, 197, 0.8);
+}
+
+.brand-archive-nav {
+  display: flex;
+  gap: 8px;
+}
+
+.brand-archive-nav button {
+  all: unset;
+  cursor: pointer;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--glass-border);
+  color: var(--text-dim);
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.brand-archive-nav button:hover,
+.brand-archive-nav button:focus-visible {
+  border-color: var(--accent);
+  color: var(--white);
+}
+
+/* 真正滚动的地方:里面是整份企划从头拼到尾的长图 */
+.brand-archive-main-body {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  background: #0a0a0b;
+}
+
+.brand-archive-main-body img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.brand-archive-main-foot {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 20px;
+  border-top: 1px solid var(--glass-border);
+}
+
+.brand-archive-main-foot h3 {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+@media (max-width: 900px) {
+  .brand-archive {
+    flex-direction: column;
+    aspect-ratio: auto;
+    height: auto;
+  }
+
+  .brand-archive-list {
+    flex: 0 0 auto;
+    max-height: 280px;
+    border-right: none;
+    border-bottom: 1px solid var(--glass-border);
+  }
+
+  .brand-archive-main-body {
+    height: 420px;
+  }
+
+  .brand-archive-main-foot {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 560px) {
+  .brand-archive-main-head {
+    padding: 12px 14px;
+  }
+
+  .brand-archive-row {
+    padding: 10px 14px;
+  }
+
+  .brand-archive-main-foot {
+    padding: 12px 14px;
+  }
+}
+
+

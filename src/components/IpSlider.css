@@ -1,0 +1,41 @@
+/* IP & GOODS —— "书架"手风琴
+   ------------------------------------------------------------
+   窄条的书脊 + 悬停展开的封面效果,由 AccordionGallery 组件本身
+   提供;这里只补一点"贴合本站风格"的细节:书本的底色、边框、
+   当前展开这本的红色高亮描边。 */
+
+.ip-accordion-wrap {
+  margin-top: 40px;
+}
+
+.ip-accordion .ag-panel-slot {
+  border: 2px solid transparent;
+}
+
+/* 每一本"书"都加粗一点边框,再叠一层内侧的明暗描边,
+   让书脊看起来有厚度、像真的书立在架子上,而不是一块平的色块。 */
+.ip-accordion .ag-panel {
+  background-color: var(--bg-elevated);
+  border: 2px solid rgba(255, 255, 255, 0.18);
+  box-shadow:
+    inset 0 0 0 1px rgba(0, 0, 0, 0.6),
+    inset -3px 0 0 rgba(255, 255, 255, 0.14),
+    inset 3px 0 0 rgba(0, 0, 0, 0.35),
+    0 10px 24px -16px rgba(0, 0, 0, 0.85);
+}
+
+.ip-accordion .ag-panel--active {
+  border-color: var(--accent);
+  box-shadow:
+    inset 0 0 0 1px rgba(0, 0, 0, 0.6),
+    0 0 0 1px var(--accent),
+    0 24px 60px -24px rgba(32, 211, 197, 0.4);
+}
+
+@media (max-width: 900px) {
+  .ip-accordion-wrap {
+    margin-top: 28px;
+  }
+}
+
+

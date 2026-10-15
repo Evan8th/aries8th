@@ -1,0 +1,188 @@
+.hero-region {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh;
+}
+
+.hero-sticky {
+  position: relative;
+  min-height: inherit;
+  overflow: hidden;
+  background: var(--bg);
+}
+
+.hero-poster,
+.hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-poster {
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+}
+
+.hero-video {
+  z-index: 1;
+}
+
+.hero-vignette {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background:
+    linear-gradient(180deg, rgba(10, 10, 11, 0.15) 0%, rgba(10, 10, 11, 0.35) 55%, rgba(10, 10, 11, 0.92) 100%),
+    linear-gradient(90deg, rgba(10, 10, 11, 0.85) 0%, rgba(10, 10, 11, 0.15) 45%, rgba(10, 10, 11, 0) 65%);
+}
+
+.hero-content.container {
+  position: relative;
+  z-index: 3;
+  min-height: inherit;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding-top: 132px;
+  padding-bottom: 40px;
+}
+
+.hero-title-block {
+  max-width: 100%;
+  margin-block: auto;
+}
+
+.hero-title-row {
+  display: flex;
+  align-items: flex-start;
+  overflow: visible;
+  white-space: nowrap;
+}
+
+.hero-title-word {
+  display: block;
+  font-family: var(--font-hero);
+  font-weight: 400;
+  font-size: clamp(64px, 8vw, 128px);
+  line-height: 1.1;
+  /* 空白、输入中和光标消失后始终占据同一行高度。 */
+  height: 1.1em;
+  letter-spacing: 0;
+  text-transform: none; /* Anton 大小写字形不同,保留大小写混排的效果 */
+}
+
+.hero-title-greeting {
+  font-size: clamp(36px, 7.8vw, 128px);
+  letter-spacing: -0.035em;
+}
+
+.hero-title-name {
+  font-family: var(--font-cjk);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+/* 打字机光标——细细一条竖线,不停闪烁,像真的打字机/终端在敲字 */
+.hero-type-cursor {
+  display: inline-block;
+  width: 3px;
+  height: 0.85em;
+  margin-left: 3px;
+  background: var(--accent);
+  vertical-align: -0.05em;
+  animation: hero-cursor-blink 0.85s steps(1) infinite;
+}
+
+@keyframes hero-cursor-blink {
+  0%, 45% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+.hero-title-word.accent {
+  color: var(--accent);
+}
+
+.hero-title-word.plain {
+  color: var(--white);
+}
+
+.hero-cjk-tag {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  height: 1.5em;
+  line-height: 1.5;
+  white-space: nowrap;
+  letter-spacing: 0.22em;
+  color: var(--text-dim);
+  margin: 10px 0 22px 4px;
+  text-transform: uppercase;
+}
+
+.hero-bottom-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.hero-scroll-indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+  text-align: right;
+  text-decoration: none;
+  border-radius: 50%;
+}
+
+.hero-scroll-indicator:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 5px;
+}
+
+.hero-scroll-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: var(--white);
+  animation: hero-bounce 1.6s ease-in-out infinite;
+}
+
+@keyframes hero-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
+}
+
+@media (max-width: 899px) {
+  .hero-content.container {
+    padding-top: 152px;
+    padding-bottom: 28px;
+  }
+
+}
+
+@media (max-width: 700px) {
+  .hero-cjk-tag {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+  }
+
+  .hero-bottom-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .hero-scroll-indicator {
+    align-items: flex-start;
+    text-align: left;
+  }
+}
+
+

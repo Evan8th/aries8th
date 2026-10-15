@@ -1,0 +1,103 @@
+.nav-bar {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(calc(100% - 40px), var(--content-width));
+  z-index: 100;
+  border-radius: 999px;
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 10px 12px 10px 14px;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-logo-mark {
+  display: block;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.nav-logo-text {
+  display: none;
+}
+
+@media (min-width: 640px) {
+  .nav-logo-text {
+    display: inline-block;
+  }
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: clamp(16px, 2.4vw, 36px);
+}
+
+.nav-link,
+.nav-bar .sound-toggle {
+  font-family: "Microsoft YaHei", "PingFang SC", "Noto Sans SC", sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  font-synthesis: none;
+}
+
+.nav-link {
+  white-space: nowrap;
+  padding: 10px 0;
+  color: var(--text-dim);
+  transition: color 0.2s ease;
+}
+
+.nav-link:hover,
+.nav-link:focus-visible {
+  color: var(--text);
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* 小屏幕将五个导航项放到第二行，保留所有板块入口。 */
+@media (max-width: 899px) {
+  .nav-bar {
+    top: 12px;
+    width: calc(100% - 24px);
+    border-radius: 24px;
+  }
+
+  .nav-inner {
+    flex-wrap: wrap;
+    gap: 4px 12px;
+  }
+
+  .nav-links {
+    order: 3;
+    width: 100%;
+    justify-content: space-between;
+    gap: 4px;
+  }
+
+  .nav-link {
+    letter-spacing: 0;
+  }
+}
+
+

@@ -24,15 +24,23 @@ npm run dev
 - `brandProjects.js`：游戏策划作品。
 - `contactData.js`：联系方式。
 
-图片、视频和图标都在项目内部的 `public/` 中。当前网页不依赖外部素材文件夹。添加新作品时，先将文件复制到 public/ 的对应目录，再填写相应数据中的网页路径。
+图片、首页视频和图标位于项目内部的 `public/` 中。生田社访谈视频使用越牛新闻原文中的 HTTPS MP4 直链，避免将超出 GitHub 单文件限制的视频提交到仓库；本地原视频保留并由 `.gitignore` 排除。添加新作品时，先将文件复制到 public/ 的对应目录，再填写相应数据中的网页路径。
 
 - `public/images/`：网页图标、个人图片、视频封面与品牌视觉作品。
 - `public/videos/`：视频作品。
 - `public/icons/tools/`：工具图标及来源说明。
 
-部分字体通过 Google Fonts 加载；本机字体和系统字体提供备用显示。图片与视频无需从第三方网站加载。
+部分字体通过 Google Fonts 加载；本机字体和系统字体提供备用显示。生田社视频从 video.shaoxing.com.cn 加载，其余图片与首页视频使用本地资源。
 
 ## 检查与发布
+
+### GitHub Pages
+
+仓库 `Evan8th/aries8th` 的公开网页地址为 `https://evan8th.github.io/aries8th/`（首次成功部署后生效）。
+在仓库 Settings → Pages → Build and deployment 中选择 **GitHub Actions**。
+将项目推送到 `main` 后，`.github/workflows/deploy-pages.yml` 会自动检查、构建并发布。
+本地默认使用根路径；发布流程通过 `GITHUB_PAGES_BASE=/aries8th/` 适配图片、视频和脚本地址。
+不要提交 `node_modules/`、`dist/` 或本地私密文件。
 
 ```sh
 npm test
