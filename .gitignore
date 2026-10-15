@@ -1,0 +1,15 @@
+node_modules/
+dist/
+coverage/
+.vercel/
+.superpowers/
+docs/superpowers/
+.DS_Store
+*.local
+.env
+.env.*
+.privacy-denylist.local.txt
+qa-*.png
+.preview-*
+source-assets/
+private-assets/
