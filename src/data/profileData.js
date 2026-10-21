@@ -15,7 +15,20 @@ export const profile = {
   ],
   timeline: [
     {
-      year: "2025.10 - 2026.10",
+      year: "2026.09 - 至今",
+      role: "游戏策划",
+      company: "上海止焉智能科技有限公司",
+      logo: publicAsset("/images/zhiyan-logo.jpg"),
+      introduction: "数字创意品牌",
+      base: "江苏 常州",
+      keyContributions: [
+        "参与独立游戏项目的创意策划与美术设计，负责玩法机制、角色设定、剧情文本及视觉内容创作，推动游戏项目开发与落地。",
+        "参与新媒体账号的内容策划与运营，负责选题规划、动画制作及短视频拍摄剪辑，探索多元化内容表达形式。",
+      ],
+      keywords: ["游戏策划", "创意内容", "品牌运营"],
+    },
+    {
+      year: "2025.10 - 2026.08",
       role: "市场专员",
       company: "DR PUPPY BAKERY",
       logo: publicAsset("/images/dr-puppy-bakery.png"),
