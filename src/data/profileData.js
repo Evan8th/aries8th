@@ -16,7 +16,7 @@ export const profile = {
   timeline: [
     {
       year: "2026.09 - 至今",
-      role: "游戏策划",
+      role: "创意策划",
       company: "上海止焉智能科技有限公司",
       logo: publicAsset("/images/zhiyan-logo.jpg"),
       introduction: "数字创意品牌",
